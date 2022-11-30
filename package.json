@@ -42,6 +42,7 @@
   },
   "private": true,
   "resolutions": {
-    "@types/react": "~17.0.43"
+    "@types/react": "17.0.43",
+    "@types/react-native": "~0.70.6"
   }
 }

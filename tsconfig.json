@@ -1,10 +1,30 @@
 {
   "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "lib": [
+      "es6"
+    ],
+    "rootDir": ".",
+    "noImplicitAny": false,
+    "allowJs": true,
+    "jsx": "react-native",
+    "noEmit": true,
+    "isolatedModules": true,
+    "strict": true,
+    "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
       "~/*": ["src/*"]
-    }
+    },
+    "typeRoots": ["node_modules/@types", "./types"],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
-  "exclude": ["node_modules", "babel.config.js", "metro.config.js"],
-  "extends": "expo/tsconfig.base"
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "delclarations.d.ts",
+  ]
 }
