@@ -1,23 +1,23 @@
 import React from 'react';
-import { ScrollView, View, Image, Text, SafeAreaView } from 'react-native';
+import { ScrollView, SafeAreaView, View } from 'react-native';
 
-import LogoUrl from '~/assets/icons/logo3.png';
+import LogoImage from '~/assets/icons/logo3.png';
+
+import { CustomSafeAreaView, Description, Logo, LogoContainer } from './styles';
 
 function Start() {
   return (
-    <SafeAreaView
-      style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
-    >
+    <CustomSafeAreaView>
       <ScrollView>
-        <View>
-          <Image source={{ uri: LogoUrl }} />
-          <Text>
-            Vamos transformar sua vida /n em jogo, buscando sempre /n o melhor
-            nível
-          </Text>
-        </View>
+        <LogoContainer>
+          <Logo source={LogoImage} />
+        </LogoContainer>
+        <Description>
+          Vamos transformar sua vida {'\n'} em jogo, buscando sempre {'\n'} o
+          melhor nível
+        </Description>
       </ScrollView>
-    </SafeAreaView>
+    </CustomSafeAreaView>
   );
 }
 
