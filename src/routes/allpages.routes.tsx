@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import StartScreen from '~/screens/start';
+import AppExplanation from '~/screens/AppExplanation';
+import StartScreen from '~/screens/Start';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,11 +13,10 @@ function AllPages() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Home" component={StartScreen} />
+        <Stack.Screen name="AppExplanation" component={AppExplanation} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
 export default AllPages;
-
-const styles = StyleSheet.create({});

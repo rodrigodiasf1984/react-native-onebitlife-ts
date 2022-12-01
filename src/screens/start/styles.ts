@@ -12,7 +12,6 @@ export const CustomSafeAreaView = styled.SafeAreaView`
 export const Logo = styled.Image`
   width: ${cw(300)}px;
   height: ${ch(60)}px;
-  margin-top: ${ch(60)}px;
   margin-bottom: ${ch(20)}px;
 `;
 
