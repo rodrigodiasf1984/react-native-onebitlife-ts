@@ -17,9 +17,9 @@ export const Logo = styled.Image`
 `;
 
 export const Description = styled.Text`
-  color: '#FFFFFF';
+  color: #ffffff;
   font-size: ${ch(20)}px;
-  text-align: 'center';
+  text-align: center;
   margin: 0 ${ch(60)}px;
 `;
 

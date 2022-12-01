@@ -15,9 +15,14 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": [
+        "src/*"
+      ]
     },
-    "typeRoots": ["node_modules/@types", "./types"],
+    "typeRoots": [
+      "node_modules/@types",
+      "./types"
+    ],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },
@@ -25,6 +30,7 @@
     "node_modules",
     "babel.config.js",
     "metro.config.js",
-    "delclarations.d.ts",
-  ]
+    "delclarations.d.ts"
+  ],
+  "extends": "expo/tsconfig.base"
 }

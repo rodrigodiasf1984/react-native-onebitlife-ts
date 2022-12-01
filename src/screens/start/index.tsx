@@ -1,7 +1,8 @@
 import React from 'react';
-import { ScrollView, SafeAreaView, View } from 'react-native';
+import { ScrollView } from 'react-native';
 
 import LogoImage from '~/assets/icons/logo3.png';
+import LifeStatus from '~/components/common/LifeStatus';
 
 import { CustomSafeAreaView, Description, Logo, LogoContainer } from './styles';
 
@@ -12,9 +13,9 @@ function Start() {
         <LogoContainer>
           <Logo source={LogoImage} />
         </LogoContainer>
+        <LifeStatus />
         <Description>
-          Vamos transformar sua vida {'\n'} em jogo, buscando sempre {'\n'} o
-          melhor nível
+          Vamos transformar sua vida em jogo, buscando sempre o melhor nível
         </Description>
       </ScrollView>
     </CustomSafeAreaView>
