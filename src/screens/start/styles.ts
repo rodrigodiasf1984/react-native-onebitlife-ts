@@ -4,8 +4,8 @@ import { ch, cw } from '~/utils/DimensionsStyles';
 
 export const CustomSafeAreaView = styled.SafeAreaView`
   flex: 1;
-  align-items: 'center';
-  justify-content: 'center';
+  align-items: center;
+  justify-content: center;
   background-color: rgba(21, 21, 21, 0.98);
 `;
 

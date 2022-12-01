@@ -1,12 +1,28 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
 
-const index = () => {
+import { CustomButtonText, CustomTouchable } from './styles';
+
+interface DefaultButtonProps extends TouchableOpacityProps {
+  buttonText: string;
+  width: number;
+  height: number;
+}
+
+export default function DefaultButton({
+  buttonText,
+  width,
+  height,
+  ...rest
+}: DefaultButtonProps) {
   return (
-    <View>
-      <Text>index</Text>
-    </View>
+    <CustomTouchable
+      width={width}
+      height={height}
+      activeOpacity={0.7}
+      {...rest}
+    >
+      <CustomButtonText>{buttonText}</CustomButtonText>
+    </CustomTouchable>
   );
-};
-
-export default index;
+}
