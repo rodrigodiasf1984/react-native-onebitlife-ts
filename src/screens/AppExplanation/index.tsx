@@ -1,5 +1,7 @@
 import React from 'react';
-import { View } from 'react-native';
+
+import { useNavigation } from '@react-navigation/native';
+import { navigationProps } from '@types';
 
 import DefaultButton from '~/components/common/DefaultButton';
 import ExplanationCard from '~/components/ExplanationCard';
@@ -12,6 +14,7 @@ import {
 } from './styles';
 
 export default function AppExplanation() {
+  const navigation = useNavigation<navigationProps>();
   return (
     <CustomSafeAreaView>
       <Title>Antes, deixa {'\n'} eu te explicar...</Title>
@@ -25,7 +28,7 @@ export default function AppExplanation() {
         buttonText="Continuar"
         width={250}
         height={50}
-        onPress={() => console.log('OK')}
+        onPress={() => navigation.navigate('Home')}
       />
     </CustomSafeAreaView>
   );
