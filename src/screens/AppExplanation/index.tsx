@@ -15,12 +15,12 @@ export default function AppExplanation() {
   return (
     <CustomSafeAreaView>
       <Title>Antes, deixa {'\n'} eu te explicar...</Title>
+      <ExplanationCard />
       <DescriptionCta>Pronto(a) para subir de nível na vida?</DescriptionCta>
       <Description>
         Na próxima tela você vai poder escolher {'\n'} seus 4 hábitos de forma
         individual.
       </Description>
-      <ExplanationCard />
       <DefaultButton
         buttonText="Continuar"
         width={250}
