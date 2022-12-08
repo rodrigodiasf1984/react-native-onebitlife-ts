@@ -14,7 +14,7 @@ export const Title = styled.Text`
   font-weight: bold;
   color: white;
   text-align: center;
-  margin: ${ch(40)}px 0;
+  margin: ${ch(20)}px;
 `;
 export const DescriptionCta = styled.Text`
   color: white;

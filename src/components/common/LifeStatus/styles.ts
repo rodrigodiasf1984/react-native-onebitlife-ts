@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 
 import { ch, cw } from '~/utils/DimensionsStyles';
 
-export const Container = styled.View`
+export const LifeStatusContainer = styled.View`
   flex-direction: row;
   height: ${ch(300)}px;
   width: ${cw(300)}px;

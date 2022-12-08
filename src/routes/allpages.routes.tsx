@@ -12,8 +12,8 @@ function AllPages() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Home" component={StartScreen} />
         <Stack.Screen name="AppExplanation" component={AppExplanation} />
+        <Stack.Screen name="Home" component={StartScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
