@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import BodyImage from '~/assets/icons/bodyIcon.png';
 import EducationImage from '~/assets/icons/educationIcon.png';

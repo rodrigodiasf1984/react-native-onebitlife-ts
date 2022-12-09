@@ -5,6 +5,8 @@ import { ch } from '~/utils/DimensionsStyles';
 export const HomeContainer = styled.View`
   flex: 1;
   background-color: rgba(21, 21, 21, 0.98);
+  align-items: center;
+  padding-bottom: ${ch(50)}px;
 `;
 export const DailyChecks = styled.Text`
   color: #fff;
