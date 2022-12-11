@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Image, StyleSheet } from 'react-native';
+import { Image } from 'react-native';
 import { SelectList } from 'react-native-dropdown-select-list';
 
 import ArrowDropDown from '~/assets/icons/arrowDropdown.png';
+import { HabitProps } from '~/components/HomePage/types';
 import { dataBody, dataFun, dataMind, dataMoney } from '~/Database/HabitData';
 
 import { styles } from './styles';
 
 type SelectHabitProps = {
-  habit: string | undefined;
-  habitInput: (string) => void;
+  habit: HabitProps;
+  habitInput: (v: string) => void;
 };
 
 type GenericData = {
@@ -18,10 +19,11 @@ type GenericData = {
 };
 
 function SelectHabit({ habit, habitInput }: SelectHabitProps) {
-  const [selected, setSelected] = useState(habit ?? '-');
+  console.log('✅ ~  habit', habit);
+  const [selected, setSelected] = useState(habit.habitName ?? '-');
   const [data, setData] = useState<GenericData[] | undefined>();
   useEffect(() => {
-    switch (habit) {
+    switch (habit.habitArea) {
       case 'Mente':
         setData(dataMind);
         break;
@@ -38,7 +40,7 @@ function SelectHabit({ habit, habitInput }: SelectHabitProps) {
         break;
     }
 
-    habitInput(habit);
+    if (habit.habitName !== undefined) habitInput(habit.habitName);
   }, [habit, habitInput]);
 
   return (

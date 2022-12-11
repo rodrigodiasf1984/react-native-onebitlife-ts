@@ -7,16 +7,10 @@ import LifeStatus from '~/components/common/LifeStatus';
 import CreateHabit from '~/components/HomePage/CreateHabit';
 import EditHabit from '~/components/HomePage/EditHabit';
 import Status from '~/components/HomePage/Status';
+import { HabitProps } from '~/components/HomePage/types';
 import { THEME } from '~/utils/Theme';
 
 import { CustomTextGoBack, DailyChecks, HomeContainer } from './styles';
-
-type HabitProps = {
-  habitName: string;
-  habitTime: string;
-  habitFrequency: string;
-  habitArea: string;
-};
 
 function Home() {
   const [mindHabit, setMindHabit] = useState<HabitProps>();
@@ -40,23 +34,13 @@ function Home() {
         <Status />
 
         {mindHabit ? (
-          <EditHabit
-            habit={mindHabit?.habitName}
-            frequency={`${mindHabit?.habitTime} - ${mindHabit?.habitFrequency}`}
-            habitArea={mindHabit?.habitArea}
-            checkColor={THEME.COLORS.MIND}
-          />
+          <EditHabit habit={mindHabit} checkColor={THEME.COLORS.MIND} />
         ) : (
           <CreateHabit habitArea="Mente" borderColor={THEME.COLORS.MIND} />
         )}
 
         {moneyHabit ? (
-          <EditHabit
-            habit={moneyHabit?.habitName}
-            frequency={`${moneyHabit?.habitTime} - ${moneyHabit?.habitFrequency}`}
-            habitArea={moneyHabit?.habitArea}
-            checkColor={THEME.COLORS.FINANCIAL}
-          />
+          <EditHabit habit={moneyHabit} checkColor={THEME.COLORS.FINANCIAL} />
         ) : (
           <CreateHabit
             habitArea="Financeiro"
@@ -65,23 +49,13 @@ function Home() {
         )}
 
         {bodyHabit ? (
-          <EditHabit
-            habit={bodyHabit?.habitName}
-            frequency={`${bodyHabit?.habitTime} - ${bodyHabit?.habitFrequency}`}
-            habitArea={bodyHabit?.habitArea}
-            checkColor={THEME.COLORS.BODY}
-          />
+          <EditHabit habit={bodyHabit} checkColor={THEME.COLORS.BODY} />
         ) : (
           <CreateHabit habitArea="Corpo" borderColor={THEME.COLORS.BODY} />
         )}
 
         {funHabit ? (
-          <EditHabit
-            habit={funHabit?.habitName}
-            frequency={`${funHabit?.habitTime} - ${funHabit?.habitFrequency}`}
-            habitArea={funHabit?.habitArea}
-            checkColor={THEME.COLORS.FUN}
-          />
+          <EditHabit habit={funHabit} checkColor={THEME.COLORS.FUN} />
         ) : (
           <CreateHabit habitArea="Humor" borderColor={THEME.COLORS.FUN} />
         )}
