@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { CustomStatusBar } from '~/components/common/CustomStatusBar';
-import Routes from '~/routes/index.routes';
+import Routes from '~/routes';
 
 export default function App() {
   return (
