@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 
 import { ch, cw } from '~/utils/DimensionsStyles';
+import { THEME } from '~/utils/Theme';
 
 import { LabelColor } from './types';
 
@@ -16,7 +17,7 @@ export const CustomImage = styled.Image`
 `;
 
 export const Description = styled.Text`
-  color: #fff;
+  color: ${THEME.COLORS.TEXT};
   flex-shrink: 1;
 `;
 

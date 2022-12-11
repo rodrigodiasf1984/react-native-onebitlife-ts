@@ -7,6 +7,7 @@ import LifeStatus from '~/components/common/LifeStatus';
 import CreateHabit from '~/components/Home/CreateHabit';
 import EditHabit from '~/components/Home/EditHabit';
 import Status from '~/components/Home/Status';
+import { THEME } from '~/utils/Theme';
 
 import { CustomTextGoBack, DailyChecks, HomeContainer } from './styles';
 
@@ -43,10 +44,10 @@ function Home() {
             habit={mindHabit?.habitName}
             frequency={`${mindHabit?.habitTime} - ${mindHabit?.habitFrequency}`}
             habitArea={mindHabit?.habitArea}
-            checkColor="#90B7F3"
+            checkColor={THEME.COLORS.MIND}
           />
         ) : (
-          <CreateHabit habitArea="Mente" borderColor="#90B7F3" />
+          <CreateHabit habitArea="Mente" borderColor={THEME.COLORS.MIND} />
         )}
 
         {moneyHabit ? (
@@ -54,10 +55,13 @@ function Home() {
             habit={moneyHabit?.habitName}
             frequency={`${moneyHabit?.habitTime} - ${moneyHabit?.habitFrequency}`}
             habitArea={moneyHabit?.habitArea}
-            checkColor="#85BB65"
+            checkColor={THEME.COLORS.FINANCIAL}
           />
         ) : (
-          <CreateHabit habitArea="Financeiro" borderColor="#85BB65" />
+          <CreateHabit
+            habitArea="Financeiro"
+            borderColor={THEME.COLORS.FINANCIAL}
+          />
         )}
 
         {bodyHabit ? (
@@ -65,10 +69,10 @@ function Home() {
             habit={bodyHabit?.habitName}
             frequency={`${bodyHabit?.habitTime} - ${bodyHabit?.habitFrequency}`}
             habitArea={bodyHabit?.habitArea}
-            checkColor="#FF0044"
+            checkColor={THEME.COLORS.BODY}
           />
         ) : (
-          <CreateHabit habitArea="Corpo" borderColor="#FF0044" />
+          <CreateHabit habitArea="Corpo" borderColor={THEME.COLORS.BODY} />
         )}
 
         {funHabit ? (
@@ -76,10 +80,10 @@ function Home() {
             habit={funHabit?.habitName}
             frequency={`${funHabit?.habitTime} - ${funHabit?.habitFrequency}`}
             habitArea={funHabit?.habitArea}
-            checkColor="#FE7F23"
+            checkColor={THEME.COLORS.FUN}
           />
         ) : (
-          <CreateHabit habitArea="Humor" borderColor="#FE7F23" />
+          <CreateHabit habitArea="Humor" borderColor={THEME.COLORS.FUN} />
         )}
 
         <CustomTextGoBack onPress={() => navigation.goBack()}>

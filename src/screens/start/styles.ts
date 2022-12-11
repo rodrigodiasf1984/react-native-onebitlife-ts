@@ -1,12 +1,13 @@
 import styled from 'styled-components/native';
 
 import { ch, cw } from '~/utils/DimensionsStyles';
+import { THEME } from '~/utils/Theme';
 
 export const CustomSafeAreaView = styled.SafeAreaView`
   flex: 1;
   align-items: center;
   justify-content: center;
-  background-color: rgba(21, 21, 21, 0.98);
+  background-color: ${THEME.COLORS.BACKGROUND};
 `;
 
 export const Logo = styled.Image`
@@ -16,8 +17,8 @@ export const Logo = styled.Image`
 `;
 
 export const Description = styled.Text`
-  color: #ffffff;
-  font-size: ${ch(20)}px;
+  color: ${THEME.COLORS.TEXT};
+  font-size: ${ch(THEME.FONT_SIZE.LG)}px;
   text-align: center;
   margin: 0 ${ch(60)}px;
 `;

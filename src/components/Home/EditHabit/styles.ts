@@ -1,11 +1,12 @@
 import styled from 'styled-components/native';
 
 import { ch, cw } from '~/utils/DimensionsStyles';
+import { THEME } from '~/utils/Theme';
 
 import { BorderColorProps } from '../types';
 
 export const EditHabitButton = styled.TouchableOpacity`
-  background-color: #151515;
+  background-color: ${THEME.COLORS.BACKGROUND};
   border-radius: 5;
   width: ${cw(320)}px;
   margin: ${ch(10)}px 0;

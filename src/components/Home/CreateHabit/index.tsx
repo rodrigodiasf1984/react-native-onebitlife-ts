@@ -1,15 +1,23 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
+
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 
 import { ButtonCreateHabit, CreateHabitButtonText } from './styles';
 
 type CreateHabitProps = {
-  habitArea: any;
+  habitArea: string;
   borderColor: string;
 };
 
 function CreateHabit({ habitArea, borderColor }: CreateHabitProps) {
+  const navigation = useNavigation<NavigationProp<any, any>>();
+  const params = {
+    create: true,
+    habit: habitArea,
+  };
   const handleCreate = () => {
-    console.log('clicou no botão', habitArea);
+    navigation.navigate('HabitPage', params);
   };
 
   return (

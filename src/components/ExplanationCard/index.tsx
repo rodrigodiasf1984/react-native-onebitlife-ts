@@ -4,6 +4,7 @@ import BodyImage from '~/assets/icons/bodyIcon.png';
 import EducationImage from '~/assets/icons/educationIcon.png';
 import FunImage from '~/assets/icons/funIcon.png';
 import FinancesImage from '~/assets/icons/moneyIcon.png';
+import { THEME } from '~/utils/Theme';
 
 import ExplanationContainer from './ExplanationContainer';
 import { CustomTitle, ExplanationCardContainer } from './styles';
@@ -16,25 +17,25 @@ function ExplanationCard() {
         fundamentais:
       </CustomTitle>
       <ExplanationContainer
-        color="#90B7F3"
+        color={THEME.COLORS.MIND}
         label="Mente"
         description="Hábitos para melhorar sua inteligência e sabedoria"
         imageSource={EducationImage}
       />
       <ExplanationContainer
-        color="#85BB65"
+        color={THEME.COLORS.FINANCIAL}
         label="Financeiro"
         description="Hábitos para te ajudar com o controle financeiro"
         imageSource={FinancesImage}
       />
       <ExplanationContainer
-        color="#FF0044"
+        color={THEME.COLORS.BODY}
         label="Corpo"
         description="Hábitos para te deixar mais saudável e forte"
         imageSource={BodyImage}
       />
       <ExplanationContainer
-        color="#FE7F23"
+        color={THEME.COLORS.FUN}
         label="Humor"
         description="Hábitos para controlar o stress e aumentar a felicidade"
         imageSource={FunImage}

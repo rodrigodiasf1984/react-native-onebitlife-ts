@@ -1,16 +1,17 @@
 import styled from 'styled-components/native';
 
 import { ch } from '~/utils/DimensionsStyles';
+import { THEME } from '~/utils/Theme';
 
 export const CustomSafeAreaView = styled.SafeAreaView`
   flex: 1;
   align-items: center;
   justify-content: center;
-  background-color: rgba(21, 21, 21, 0.98);
+  background-color: ${THEME.COLORS.BACKGROUND};
 `;
 
 export const Title = styled.Text`
-  font-size: ${ch(30)}px;
+  font-size: ${ch(THEME.FONT_SIZE.XL)}px;
   font-weight: bold;
   color: white;
   text-align: center;
@@ -19,7 +20,7 @@ export const Title = styled.Text`
 export const DescriptionCta = styled.Text`
   color: white;
   font-weight: bold;
-  font-size: ${ch(16)}px;
+  font-size: ${ch(THEME.FONT_SIZE.SM)}px;
   margin-top: ${ch(20)}px;
   margin-bottom: ${ch(10)}px;
 `;

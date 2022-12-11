@@ -3,10 +3,11 @@ import { ProgressBar } from 'react-native-paper';
 import styled from 'styled-components/native';
 
 import { ch, cw } from '~/utils/DimensionsStyles';
+import { THEME } from '~/utils/Theme';
 
 export const StatusContainer = styled.View`
   padding: ${ch(20)}px ${cw(20)}px;
-  background-color: #111111;
+  background-color: ${THEME.COLORS.BACKGROUND};
   border-radius: ${cw(10)}px;
   margin: ${ch(10)}px ${cw(20)}px;
 `;

@@ -1,9 +1,10 @@
 import styled from 'styled-components/native';
 
 import { cw, ch } from '~/utils/DimensionsStyles';
+import { THEME } from '~/utils/Theme';
 
 export const ExplanationCardContainer = styled.View`
-  background-color: #111111;
+  background-color: ${THEME.COLORS.BACKGROUND};
   width: ${cw(350)}px;
   border-radius: ${cw(25)}px;
   padding: ${ch(30)}px ${cw(30)}px;
@@ -12,7 +13,7 @@ export const ExplanationCardContainer = styled.View`
 
 export const CustomTitle = styled.Text`
   font-weight: bold;
-  color: #fff;
+  color: ${THEME.COLORS.TEXT};
   text-align: center;
-  font-size: ${ch(16)}px;
+  font-size: ${ch(THEME.FONT_SIZE.SM)}px;
 `;
