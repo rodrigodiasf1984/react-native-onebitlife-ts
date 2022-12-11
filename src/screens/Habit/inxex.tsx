@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
   NavigationProp,
@@ -8,6 +8,7 @@ import {
 } from '@react-navigation/native';
 
 import ArrowBackImage from '~/assets/icons/arrowBack.png';
+import SelectHabit from '~/components/HabitPage/SelectHabit';
 
 import {
   ArrowBack,
@@ -20,8 +21,9 @@ import {
   MainContent,
 } from './styles';
 
-function HabitPage() {
+function Habit() {
   const navigation = useNavigation<NavigationProp<any, any>>();
+  const [habitInput, setHabitInput] = useState();
   const route = useRoute();
   const { create, habit } = route.params as any;
   return (
@@ -35,6 +37,8 @@ function HabitPage() {
         <HabitInputContainer>
           <HabitAreaText>{habit}</HabitAreaText>
         </HabitInputContainer>
+        <HabitInputText>Hábito</HabitInputText>
+        <SelectHabit habit={habit} habitInput={setHabitInput} />
       </MainContent>
     </HabitPageContainer>
   );

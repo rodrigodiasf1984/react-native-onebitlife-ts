@@ -4,9 +4,9 @@ import { ScrollView, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import LifeStatus from '~/components/common/LifeStatus';
-import CreateHabit from '~/components/Home/CreateHabit';
-import EditHabit from '~/components/Home/EditHabit';
-import Status from '~/components/Home/Status';
+import CreateHabit from '~/components/HomePage/CreateHabit';
+import EditHabit from '~/components/HomePage/EditHabit';
+import Status from '~/components/HomePage/Status';
 import { THEME } from '~/utils/Theme';
 
 import { CustomTextGoBack, DailyChecks, HomeContainer } from './styles';

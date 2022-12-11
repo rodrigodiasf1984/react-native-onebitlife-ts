@@ -17,7 +17,7 @@ function CreateHabit({ habitArea, borderColor }: CreateHabitProps) {
     habit: habitArea,
   };
   const handleCreate = () => {
-    navigation.navigate('HabitPage', params);
+    navigation.navigate('Habit', params);
   };
 
   return (
