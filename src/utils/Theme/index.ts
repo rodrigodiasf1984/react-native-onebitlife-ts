@@ -9,6 +9,9 @@ export const THEME = {
     BODY: '#85BB65',
     FINANCIAL: '#FF0044',
     FUN: '#FE7F23',
+
+    INACTIVE: '#FF0044',
+    ACTIVE: '#2DBE56',
   },
 
   FONT_SIZE: {

@@ -9,6 +9,7 @@ import {
 } from '@react-navigation/native';
 
 import ArrowBackImage from '~/assets/icons/arrowBack.png';
+import Notification from '~/components/HabitPage/Notification';
 import SelectFrequency from '~/components/HabitPage/SelectFrequency';
 import SelectHabit from '~/components/HabitPage/SelectHabit';
 
@@ -27,15 +28,13 @@ function Habit() {
   const navigation = useNavigation<NavigationProp<any, any>>();
   const [habitInput, setHabitInput] = useState('');
   const [habitFrequency, setHabitFrequency] = useState('');
+  const [notificaitonToggle, setNotificationToggle] = useState(false);
+
   const route = useRoute();
   const { create, habit } = route.params as any;
   return (
     <HabitPageContainer>
-      <ScrollView
-        style={{ flex: 1 }}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ alignItems: 'center' }}
-      >
+      <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
         <ButtonBack onPress={() => navigation.goBack()}>
           <ArrowBack source={ArrowBackImage} />
         </ButtonBack>
@@ -51,6 +50,10 @@ function Habit() {
           <SelectFrequency
             frequencyInput={setHabitFrequency}
             habitFrequency={habit?.habitFrequency}
+          />
+          <Notification
+            notificationToggle={notificaitonToggle}
+            setNotificationToggle={setNotificationToggle}
           />
         </MainContent>
       </ScrollView>
