@@ -4,7 +4,7 @@ import { SelectList } from 'react-native-dropdown-select-list';
 
 import ArrowDropDown from '~/assets/icons/arrowDropdown.png';
 import { HabitProps } from '~/components/HomePage/types';
-import { dataBody, dataFun, dataMind, dataMoney } from '~/Database/HabitData';
+import { dataBody, dataFun, dataMind, dataMoney } from '~/database/HabitData';
 
 import { styles } from './styles';
 
@@ -19,7 +19,6 @@ type GenericData = {
 };
 
 function SelectHabit({ habit, habitInput }: SelectHabitProps) {
-  console.log('✅ ~  habit', habit);
   const [selected, setSelected] = useState(habit.habitName ?? '-');
   const [data, setData] = useState<GenericData[] | undefined>();
   useEffect(() => {

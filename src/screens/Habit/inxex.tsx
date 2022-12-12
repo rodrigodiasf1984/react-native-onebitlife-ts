@@ -9,6 +9,7 @@ import {
 } from '@react-navigation/native';
 
 import ArrowBackImage from '~/assets/icons/arrowBack.png';
+import CustomDateTimePicker from '~/components/HabitPage/CustomDateTimePicker';
 import Notification from '~/components/HabitPage/Notification';
 import SelectFrequency from '~/components/HabitPage/SelectFrequency';
 import SelectHabit from '~/components/HabitPage/SelectHabit';
@@ -27,11 +28,25 @@ import {
 function Habit() {
   const navigation = useNavigation<NavigationProp<any, any>>();
   const [habitInput, setHabitInput] = useState('');
-  const [habitFrequency, setHabitFrequency] = useState('');
-  const [notificaitonToggle, setNotificationToggle] = useState(false);
+  const [frequencyInput, setFrequencyInput] = useState('');
+  const [notificationToggle, setNotificationToggle] = useState(false);
+  const [dayNotification, setDayNotification] = useState('');
+  const [timeNotification, setTimeNotification] = useState('');
 
   const route = useRoute();
   const { create, habit } = route.params as any;
+
+  const renderDateTimePicker = () =>
+    frequencyInput === 'Mensal' ? null : (
+      <CustomDateTimePicker
+        frequency={frequencyInput}
+        dayNotification={dayNotification}
+        timeNotification={timeNotification}
+        setDayNotification={setDayNotification}
+        setTimeNotification={setTimeNotification}
+      />
+    );
+
   return (
     <HabitPageContainer>
       <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
@@ -48,13 +63,16 @@ function Habit() {
           <SelectHabit habit={habit} habitInput={setHabitInput} />
           <HabitInputText>Frequência</HabitInputText>
           <SelectFrequency
-            frequencyInput={setHabitFrequency}
+            frequencyInput={setFrequencyInput}
             habitFrequency={habit?.habitFrequency}
           />
-          <Notification
-            notificationToggle={notificaitonToggle}
-            setNotificationToggle={setNotificationToggle}
-          />
+          {frequencyInput === 'Mensal' ? null : (
+            <Notification
+              notificationToggle={notificationToggle}
+              setNotificationToggle={setNotificationToggle}
+            />
+          )}
+          {notificationToggle ? renderDateTimePicker() : null}
         </MainContent>
       </ScrollView>
     </HabitPageContainer>

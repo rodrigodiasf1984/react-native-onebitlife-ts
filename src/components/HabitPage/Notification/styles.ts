@@ -14,6 +14,6 @@ type NotificationTitleProps = {
 };
 export const NotificationTitle = styled.Text<NotificationTitleProps>`
   color: ${props => props.color};
-  font-size: ${THEME.FONT_SIZE.LG};
+  font-size: ${THEME.FONT_SIZE.LG}px;
   margin-right: ${cw(10)}px;
 `;
