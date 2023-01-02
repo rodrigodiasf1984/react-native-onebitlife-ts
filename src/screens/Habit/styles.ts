@@ -4,7 +4,7 @@ import { THEME } from '~/utils/Theme';
 
 import { ch, cw } from '../../utils/DimensionsStyles/index';
 
-export const HabitPageContainer = styled.View`
+export const HabitPageContainer = styled.SafeAreaView`
   flex: 1;
   background-color: ${THEME.COLORS.BACKGROUND};
 `;
