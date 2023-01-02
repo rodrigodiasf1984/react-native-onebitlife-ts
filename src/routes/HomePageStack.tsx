@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import AppExplanation from '~/screens/AppExplanation';
-import Habit from '~/screens/Habit/inxex';
+import Habit from '~/screens/Habit';
 import Home from '~/screens/Home';
 
 const Stack = createNativeStackNavigator();
