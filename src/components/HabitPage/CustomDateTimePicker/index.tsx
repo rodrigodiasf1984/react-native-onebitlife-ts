@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Platform, View } from 'react-native';
+import { View } from 'react-native';
 import { SelectList } from 'react-native-dropdown-select-list';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
@@ -40,7 +40,9 @@ function CustomDateTimePicker({
   timeNotification,
 }: DateTimePickerProps) {
   const [date, setDate] = useState(new Date());
-  const [mode, setMode] = useState<any>('date');
+  const [mode, setMode] = useState<'date' | 'time' | 'datetime' | undefined>(
+    'date',
+  );
   const [show, setShow] = useState(false);
   const [selected, setSelected] = useState('-');
   const [notificationDate, setNotificationDate] = useState();
@@ -55,6 +57,7 @@ function CustomDateTimePicker({
       .getMinutes()
       .toString()
       .padStart(2, '0');
+
     let dateNotification;
 
     if (frequency === 'Semanal') {
@@ -73,7 +76,7 @@ function CustomDateTimePicker({
     setShow(false);
   };
 
-  const showMode = (currentMode: React.SetStateAction<string>) => {
+  const showMode = (currentMode: 'date' | 'time' | 'datetime' | undefined) => {
     setShow(true);
     setMode(currentMode);
   };
