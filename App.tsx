@@ -2,12 +2,13 @@ import React from 'react';
 
 import { CustomStatusBar } from '~/components/common/CustomStatusBar';
 import Routes from '~/routes';
+import { THEME } from '~/utils/Theme';
 
 export default function App() {
   return (
     <>
       <CustomStatusBar
-        backgroundColor=" rgba(21, 21, 21, 0.98)"
+        backgroundColor={THEME.COLORS.BACKGROUND}
         barStyle="light-content"
       />
       <Routes />
