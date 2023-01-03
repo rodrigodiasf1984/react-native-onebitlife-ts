@@ -21,7 +21,6 @@ export default function AppExplanation() {
   const appStartData = `${startDate.getFullYear()}-${startDate.getMonth()}-${startDate.getDay()}`;
 
   function handleSetShowHome() {
-    console.log('✅ ~  showHome', showHome);
     if (showHome !== 'true') {
       ChangeNavigationService.setShowHome({ showHome: 'true', appStartData })
         .then(() => console.log(`Sucesso! ${showHome} ${appStartData}`))

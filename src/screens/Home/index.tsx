@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
 
-import { useNavigation } from '@react-navigation/native';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 
 import LifeStatus from '~/components/common/LifeStatus';
 import CreateHabit from '~/components/HomePage/CreateHabit';
@@ -18,7 +19,7 @@ function Home() {
   const [bodyHabit, setBodyHabit] = useState<HabitProps>();
   const [funHabit, setFunHabit] = useState<HabitProps>();
 
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<any, any>>();
 
   return (
     <HomeContainer>
@@ -60,7 +61,7 @@ function Home() {
           <CreateHabit habitArea="Humor" borderColor={THEME.COLORS.FUN} />
         )}
 
-        <CustomTextGoBack onPress={() => navigation.goBack()}>
+        <CustomTextGoBack onPress={() => navigation.navigate('AppExplanation')}>
           Ver explicação novamente
         </CustomTextGoBack>
       </ScrollView>
