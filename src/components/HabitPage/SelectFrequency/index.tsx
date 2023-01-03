@@ -8,7 +8,7 @@ import { styles } from './styles';
 
 type SelectFrequencyProps = {
   habitFrequency: string | undefined;
-  frequencyInput: (v: string) => void;
+  frequencyInput: (v: string | undefined) => void;
 };
 
 type GenericData = {
@@ -22,9 +22,9 @@ function SelectFrequency({
 }: SelectFrequencyProps) {
   const [selected, setSelected] = useState(habitFrequency ?? '-');
   const data: GenericData[] = [
-    { key: 'Daily', value: 'Diário' },
-    { key: 'weekly', value: 'Semanal' },
-    { key: 'monthly', value: 'Mensal' },
+    { key: 'Diário', value: 'Diário' },
+    { key: 'Semanal', value: 'Semanal' },
+    { key: 'Mensal', value: 'Mensal' },
   ];
 
   useEffect(() => {

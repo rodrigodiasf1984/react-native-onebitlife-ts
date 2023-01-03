@@ -15,21 +15,21 @@ import {
 } from './styles';
 
 type DateTimePickerProps = {
-  frequency: string;
-  dayNotification: string;
+  frequency: string | undefined;
+  dayNotification: string | undefined;
   timeNotification: string;
-  setDayNotification: (v: any) => void;
-  setTimeNotification: (v: any) => void;
+  setDayNotification: (v: string | undefined) => void;
+  setTimeNotification: (v: string) => void;
 };
 
 export const WEEK_DAYS = [
-  { key: 'Sunday', value: 'Dom' },
-  { key: 'Monday', value: 'Seg' },
-  { key: 'Tuesday', value: 'Ter' },
-  { key: 'Wed', value: 'Qua' },
-  { key: 'Thu', value: 'Qui' },
-  { key: 'Fri', value: 'Sex' },
-  { key: 'Sat', value: 'Sab' },
+  { key: 'Domingo', value: 'Dom' },
+  { key: 'Segunda', value: 'Seg' },
+  { key: 'Terça', value: 'Ter' },
+  { key: 'Quarta', value: 'Qua' },
+  { key: 'Quinta', value: 'Qui' },
+  { key: 'Sexta', value: 'Sex' },
+  { key: 'Sábado', value: 'Sab' },
 ];
 
 function CustomDateTimePicker({
@@ -45,7 +45,7 @@ function CustomDateTimePicker({
   );
   const [show, setShow] = useState(false);
   const [selected, setSelected] = useState('-');
-  const [notificationDate, setNotificationDate] = useState();
+  const [notificationDate, setNotificationDate] = useState('');
   const [notificationTime, setNotificationTime] = useState('');
 
   const onChange = (selectedDate: Date | undefined) => {
@@ -85,8 +85,7 @@ function CustomDateTimePicker({
     <View>
       <Button
         onPress={() => {
-          setMode('time');
-          setShow(true);
+          showMode('time');
         }}
       >
         <ButtonText>Selecione a hora</ButtonText>
@@ -102,7 +101,7 @@ function CustomDateTimePicker({
             search={false}
             setSelected={setSelected}
             onSelect={() => {
-              console.log('Test');
+              setNotificationDate(selected);
             }}
             placeholder={selected}
             boxStyles={otherStyles.boxStyle}

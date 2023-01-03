@@ -29,17 +29,21 @@ import {
 
 function Habit() {
   const navigation = useNavigation<NavigationProp<any, any>>();
-  const [habitInput, setHabitInput] = useState('');
-  const [frequencyInput, setFrequencyInput] = useState('');
+  const [habitInput, setHabitInput] = useState<string | undefined>(undefined);
+  const [frequencyInput, setFrequencyInput] = useState<string | undefined>(
+    undefined,
+  );
   const [notificationToggle, setNotificationToggle] = useState(false);
-  const [dayNotification, setDayNotification] = useState('');
+  const [dayNotification, setDayNotification] = useState<string | undefined>(
+    undefined,
+  );
   const [timeNotification, setTimeNotification] = useState('');
 
   const route = useRoute();
   const { create, habit } = route.params as any;
 
   const handleCreateHabit = () => {
-    if (habitInput === undefined || frequencyInput) {
+    if (habitInput === undefined || frequencyInput === undefined) {
       Alert.alert(
         'Você precisa selecionar um hábito e frequência para continuar',
       );
@@ -48,9 +52,11 @@ function Habit() {
       frequencyInput === 'Diário' &&
       timeNotification === undefined
     ) {
-      Alert.alert('Você precisa dizer o horário da notificação');
+      Alert.alert('Você precisa dizer o horário da notificação!');
     } else if (dayNotification === undefined) {
-      Alert.alert('Vocè precisa dizer a frequência e o horário da notificação');
+      Alert.alert(
+        'Você precisa dizer a frequência e o horário da notificação!',
+      );
     } else {
       navigation.navigate('Home', {
         createHabit: `Created in ${habit?.habitArea}`,
