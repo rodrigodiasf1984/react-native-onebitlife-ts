@@ -1,7 +1,11 @@
+/* eslint-disable import/no-duplicates */
 import React, { useState } from 'react';
 
 import { useNavigation } from '@react-navigation/native';
 import { navigationProps } from '@types';
+import { parseISO } from 'date-fns';
+import format from 'date-fns/format';
+import { es } from 'date-fns/locale';
 
 import DefaultButton from '~/components/common/DefaultButton';
 import ExplanationCard from '~/components/ExplanationCard';
@@ -17,8 +21,11 @@ import {
 export default function AppExplanation() {
   const navigation = useNavigation<navigationProps>();
   const [showHome, setShowHome] = useState('false');
-  const startDate = new Date();
-  const appStartData = `${startDate.getFullYear()}-${startDate.getMonth()}-${startDate.getDay()}`;
+  // const appStartData = `${startDate.getFullYear()}-${startDate.getMonth()}-${startDate.getDay()}`;
+  const appStartData = format(new Date(), 'yyyy-MM-dd');
+  function handleNavHome() {
+    navigation.navigate('Home');
+  }
 
   function handleSetShowHome() {
     if (showHome !== 'true') {
@@ -26,7 +33,7 @@ export default function AppExplanation() {
         .then(() => console.log(`Sucesso! ${showHome} ${appStartData}`))
         .catch(err => console.log(err));
       setShowHome('true');
-      navigation.navigate('Home');
+      handleNavHome();
     }
   }
 
