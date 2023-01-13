@@ -52,7 +52,6 @@ function Home(route: { params: any }) {
       >
         <View>
           <DailyChecks>
-            {' '}
             ❤️{robotDaysLife} {robotDaysLife === '01' ? 'dia' : 'dias'} ✔️ 80
             checks
           </DailyChecks>
