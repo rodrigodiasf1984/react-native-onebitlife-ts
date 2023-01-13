@@ -7,6 +7,7 @@ import {
   useNavigation,
   useRoute,
 } from '@react-navigation/native';
+import format from 'date-fns/format';
 
 import ArrowBackImage from '~/assets/icons/arrowBack.png';
 import DefaultButton from '~/components/common/DefaultButton';
@@ -15,6 +16,7 @@ import Notification from '~/components/HabitPage/Notification';
 import SelectFrequency from '~/components/HabitPage/SelectFrequency';
 import SelectHabit from '~/components/HabitPage/SelectHabit';
 import UpdateExcludeButtons from '~/components/HabitPage/UpdateExcludeButtons';
+import habitsService from '~/services/habitsService.js';
 
 import {
   ArrowBack,
@@ -41,6 +43,7 @@ function Habit() {
 
   const route = useRoute();
   const { create, habit } = route.params as any;
+  const formatDate = format(new Date(), 'yyyy-MM-dd');
 
   const handleCreateHabit = () => {
     if (habitInput === undefined || frequencyInput === undefined) {
@@ -58,9 +61,26 @@ function Habit() {
         'Você precisa dizer a frequência e o horário da notificação!',
       );
     } else {
-      navigation.navigate('Home', {
-        createHabit: `Created in ${habit?.habitArea}`,
-      });
+      habitsService
+        .createHabit({
+          habitArea: habit?.habitArea,
+          habitName: habitInput,
+          habitFrequency: frequencyInput,
+          habitHasNotification: notificationToggle,
+          habitNotificationFrequency: dayNotification,
+          habitNotificationTime: timeNotification,
+          lastCheck: formatDate,
+          daysWithoutChecks: 0,
+          habitIsChecked: 0,
+          progressBar: 1,
+        })
+        .then(() => {
+          Alert.alert('Sucesso na criação do hábito!');
+
+          navigation.navigate('Home', {
+            createdHabit: `Created in ${habit?.habitArea}`,
+          });
+        });
     }
   };
 
