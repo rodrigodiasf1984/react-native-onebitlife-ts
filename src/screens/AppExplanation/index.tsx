@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import { useNavigation } from '@react-navigation/native';
 import { navigationProps } from '@types';
-import format from 'date-fns/format';
+import { format } from 'date-fns';
 
 import DefaultButton from '~/components/common/DefaultButton';
 import ExplanationCard from '~/components/ExplanationCard';

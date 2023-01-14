@@ -7,4 +7,5 @@ export type HabitProps = {
   habitTime?: string;
   habitFrequency?: string;
   habitArea?: string;
+  habitNotificationTime: string | null;
 };

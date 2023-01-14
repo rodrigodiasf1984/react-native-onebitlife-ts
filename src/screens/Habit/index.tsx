@@ -7,7 +7,7 @@ import {
   useNavigation,
   useRoute,
 } from '@react-navigation/native';
-import format from 'date-fns/format';
+import { format } from 'date-fns';
 
 import ArrowBackImage from '~/assets/icons/arrowBack.png';
 import DefaultButton from '~/components/common/DefaultButton';

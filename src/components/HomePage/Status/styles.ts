@@ -7,7 +7,7 @@ import { THEME } from '~/utils/Theme';
 
 export const StatusContainer = styled.View`
   padding: ${ch(20)}px ${cw(20)}px;
-  background-color: ${THEME.COLORS.BACKGROUND};
+  background-color: ${THEME.COLORS.SHAPE_2};
   border-radius: ${cw(10)}px;
   margin: ${ch(10)}px ${cw(20)}px;
 `;

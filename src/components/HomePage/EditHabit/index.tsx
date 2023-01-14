@@ -1,10 +1,13 @@
 import React from 'react';
 import { View } from 'react-native';
 
+import { NavigationProp, useNavigation } from '@react-navigation/native';
+
 import { HabitProps } from '../types';
 import {
   EditHabitButton,
   EditHabitCheck,
+  EditHabitContainer,
   EditHabitFrequency,
   EditHabitTitle,
 } from './styles';
@@ -15,21 +18,30 @@ type EditHabitProps = {
 };
 
 export default function EditHabit({ habit, checkColor }: EditHabitProps) {
+  const navigation = useNavigation<NavigationProp<any, any>>();
+
   const handleEdit = () => {
-    console.log('Botão de editar clicado');
+    navigation.navigate('HabitPage', {
+      create: false,
+      habit,
+    });
   };
 
   const handleCheck = () => {
-    console.log('Botão de check do $(habit.habitArea');
+    console.log(`Clicando no check do ${habit?.habitArea}`);
   };
+
+  const textNotification =
+    habit?.habitNotificationTime === null
+      ? `Sem notificação - ${habit?.habitFrequency}`
+      : `${habit?.habitNotificationTime} - ${habit?.habitFrequency}`;
 
   return (
     <EditHabitButton activeOpacity={0.9} onPress={handleEdit}>
-      <View>
+      <EditHabitContainer>
         <EditHabitTitle> {habit?.habitName} </EditHabitTitle>
-        <EditHabitFrequency>{habit?.habitFrequency}</EditHabitFrequency>
-      </View>
-
+        <EditHabitFrequency>{textNotification}</EditHabitFrequency>
+      </EditHabitContainer>
       <EditHabitCheck borderColor={checkColor} onPress={handleCheck} />
     </EditHabitButton>
   );

@@ -4,8 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { differenceInDays, format, parseISO } from 'date-fns';
-import { es } from 'date-fns/locale';
+import { differenceInDays, format } from 'date-fns';
 
 import LifeStatus from '~/components/common/LifeStatus';
 import CreateHabit from '~/components/HomePage/CreateHabit';
@@ -13,6 +12,7 @@ import EditHabit from '~/components/HomePage/EditHabit';
 import Status from '~/components/HomePage/Status';
 import { HabitProps } from '~/components/HomePage/types';
 import ChangeNavigationService from '~/services/changeNavigationService.js';
+import HabitsService from '~/services/habitsService.js';
 import { THEME } from '~/utils/Theme';
 
 import { CustomTextGoBack, DailyChecks, HomeContainer } from './styles';
@@ -28,6 +28,19 @@ function Home(route: { params: any }) {
   const { params } = route;
 
   useEffect(() => {
+    HabitsService.findByArea('Mente').then(mind => {
+      setMindHabit(mind[0]);
+    });
+    HabitsService.findByArea('Financeiro').then(money => {
+      setMoneyHabit(money[0]);
+    });
+    HabitsService.findByArea('Corpo').then(body => {
+      setBodyHabit(body[0]);
+    });
+    HabitsService.findByArea('Humor').then(fun => {
+      setFunHabit(fun[0]);
+    });
+
     ChangeNavigationService.checkShowHome(1)
       .then(showHome => {
         if (!showHome.appStartData) {

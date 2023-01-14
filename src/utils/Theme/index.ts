@@ -1,6 +1,7 @@
 export const THEME = {
   COLORS: {
     SHAPE: '#FFFFFF',
+    SHAPE_2: '#000000',
     BACKGROUND: '#111111',
     TEXT: '#FFFFFF',
     SECONDARY_TEXT: '#BBBBBB',
