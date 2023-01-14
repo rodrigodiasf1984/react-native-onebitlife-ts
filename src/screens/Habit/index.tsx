@@ -22,6 +22,7 @@ import {
   ArrowBack,
   ButtonBack,
   HabitAreaText,
+  HabitExcludeButtonsContaier,
   HabitInputContainer,
   HabitInputText,
   HabitPageContainer,
@@ -43,6 +44,7 @@ function Habit() {
 
   const route = useRoute();
   const { create, habit } = route.params as any;
+  console.log('✅ ~  create', create);
   const formatDate = format(new Date(), 'yyyy-MM-dd');
 
   const handleCreateHabit = () => {
@@ -86,13 +88,24 @@ function Habit() {
 
   const handleUpdateHabit = () => {
     if (notificationToggle === true && !dayNotification && !timeNotification) {
-      Alert.alert(
-        'Você precisa colocar a frequência e o horário da notificação',
-      );
+      Alert.alert('Você precisa colocar a frequência e horário da notificação');
     } else {
-      navigation.navigate('Home', {
-        updateHabit: `Updated in ${habit?.habitArea}`,
-      });
+      habitsService
+        .updateHabit({
+          habitArea: habit?.habitArea,
+          habitName: habitInput,
+          habitFrequency: frequencyInput,
+          habitHasNotification: notificationToggle,
+          habitNotificationFrequency: dayNotification,
+          habitNotificationTime: timeNotification,
+          habitNotificationId: notificationToggle ? habitInput : null,
+        })
+        .then(() => {
+          Alert.alert('Sucesso na atualização do hábito');
+          navigation.navigate('Home', {
+            updatedHabit: `Updated in ${habit?.habitArea}`,
+          });
+        });
     }
   };
 
@@ -109,11 +122,13 @@ function Habit() {
 
   const renderExcludedButtons = () =>
     create === false ? (
-      <UpdateExcludeButtons
-        handleUpdate={handleUpdateHabit}
-        habitArea={habit?.habitArea}
-        habitInput={habitInput}
-      />
+      <HabitExcludeButtonsContaier>
+        <UpdateExcludeButtons
+          handleUpdate={handleUpdateHabit}
+          habitArea={habit?.habitArea}
+          habitInput={habitInput}
+        />
+      </HabitExcludeButtonsContaier>
     ) : (
       <View style={{ alignItems: 'center' }}>
         <DefaultButton
@@ -150,7 +165,7 @@ function Habit() {
             />
           )}
           {notificationToggle ? renderDateTimePicker() : null}
-          {create ? renderExcludedButtons() : null}
+          {renderExcludedButtons()}
         </MainContent>
       </ScrollView>
     </HabitPageContainer>

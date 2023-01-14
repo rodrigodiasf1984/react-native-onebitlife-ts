@@ -4,12 +4,14 @@ import { Alert } from 'react-native';
 
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 
-import TrashIcon from '~/assets/icons/trash.png';
+import TrashImage from '~/assets/icons/trash.png';
+import { THEME } from '~/utils/Theme';
 
 import {
   ExcludeButtonsContainer,
   UpdateButton,
   UpdateButtonText,
+  TrashIcon,
 } from './styles';
 
 function UpdateExcludeButtons({ habitInput, handleUpdate, habitArea }) {
@@ -43,6 +45,7 @@ function UpdateExcludeButtons({ habitInput, handleUpdate, habitArea }) {
         <UpdateButtonText>Atualizar</UpdateButtonText>
       </UpdateButton>
       <UpdateButton
+        borderColor={THEME.COLORS.INACTIVE}
         activeOpacity={0.8}
         onPress={() =>
           Alert.alert(
@@ -60,7 +63,7 @@ function UpdateExcludeButtons({ habitInput, handleUpdate, habitArea }) {
           )
         }
       >
-        <TrashIcon source={TrashIcon} />
+        <TrashIcon source={TrashImage} />
       </UpdateButton>
     </ExcludeButtonsContainer>
   );

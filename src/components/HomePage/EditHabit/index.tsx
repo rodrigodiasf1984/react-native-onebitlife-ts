@@ -21,7 +21,7 @@ export default function EditHabit({ habit, checkColor }: EditHabitProps) {
   const navigation = useNavigation<NavigationProp<any, any>>();
 
   const handleEdit = () => {
-    navigation.navigate('HabitPage', {
+    navigation.navigate('Habit', {
       create: false,
       habit,
     });

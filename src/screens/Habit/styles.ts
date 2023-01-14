@@ -44,3 +44,9 @@ export const HabitInputContainer = styled.View`
   border-radius: 10px;
   padding: ${ch(15)}px ${cw(20)}px;
 `;
+
+export const HabitExcludeButtonsContaier = styled.View`
+  align-items: center;
+  justify-content: center;
+  margin-top: ${ch(20)}px;
+`;

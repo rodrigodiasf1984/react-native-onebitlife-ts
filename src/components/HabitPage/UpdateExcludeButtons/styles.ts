@@ -8,9 +8,12 @@ export const ExcludeButtonsContainer = styled.View`
   margin-bottom: ${ch(20)}px;
 `;
 
-export const UpdateButton = styled.TouchableOpacity`
+type UpdateButtonProps = {
+  borderColor?: string;
+};
+export const UpdateButton = styled.TouchableOpacity<UpdateButtonProps>`
   border-width: 1px;
-  border-color: ${THEME.COLORS.SHAPE};
+  border-color: ${({ borderColor }) => borderColor || THEME.COLORS.SHAPE};
   width: ${cw(150)}px;
   height: ${ch(50)}px;
   margin-right: ${cw(10)}px;
@@ -34,7 +37,7 @@ export const TrashButton = styled.TouchableOpacity`
   width: ${cw(90)}px;
 `;
 
-export const TrashICon = styled.Image`
-  width: ${cw(25)}px;
-  height: ${ch(25)}px;
+export const TrashIcon = styled.Image`
+  width: 25px;
+  height: 25px;
 `;
