@@ -19,7 +19,6 @@ import {
 export default function AppExplanation() {
   const navigation = useNavigation<navigationProps>();
   const [showHome, setShowHome] = useState('false');
-  // const appStartData = `${startDate.getFullYear()}-${startDate.getMonth()}-${startDate.getDay()}`;
   const appStartData = format(new Date(), 'yyyy-MM-dd');
   function handleNavHome() {
     navigation.navigate('Home');

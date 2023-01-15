@@ -9,4 +9,5 @@ export type HabitProps = {
   habitArea?: string;
   habitNotificationTime: string | null;
   progressBar: number;
+  habitChecks: number;
 };
