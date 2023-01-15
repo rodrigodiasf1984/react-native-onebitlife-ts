@@ -64,10 +64,9 @@ export default function EditHabit({ habit, checkColor }: EditHabitProps) {
     }
   }, [habit?.habitArea, habit?.habitChecks]);
 
-  const textNotification =
-    habit?.habitNotificationTime === null
-      ? `Sem notificação - ${habit?.habitFrequency}`
-      : `${habit?.habitNotificationTime} - ${habit?.habitFrequency}`;
+  const textNotification = !habit?.habitNotificationTime
+    ? `Sem notificação - ${habit?.habitFrequency}`
+    : `${habit?.habitNotificationTime} - ${habit?.habitFrequency}`;
 
   return (
     <EditHabitButton activeOpacity={0.9} onPress={handleEdit}>
