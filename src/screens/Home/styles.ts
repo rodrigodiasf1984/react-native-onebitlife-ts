@@ -24,3 +24,10 @@ export const CustomTextGoBack = styled.Text`
   padding-top: ${ch(15)}px;
   padding-bottom: ${ch(25)}px;
 `;
+
+export const GameOverTitle = styled.Text`
+  margin: ${ch(25)}px 0;
+  font-size: ${ch(20)}px;
+  font-weight: bold;
+  color: ${THEME.COLORS.TEXT};
+`;
