@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Image } from 'react-native';
 
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import format from 'date-fns/format';
@@ -8,6 +7,7 @@ import BodyCkeckImage from '~/assets/icons/Body.png';
 import FunCkeckImage from '~/assets/icons/Fun.png';
 import MindCkeckImage from '~/assets/icons/Mind.png';
 import MoneyCkeckImage from '~/assets/icons/Money.png';
+import CheckService from '~/services/checkService.js';
 
 import { HabitProps } from '../types';
 import {
@@ -26,10 +26,10 @@ type EditHabitProps = {
 
 export default function EditHabit({ habit, checkColor }: EditHabitProps) {
   const navigation = useNavigation<NavigationProp<any, any>>();
-  const [habitCheck, setHabitCheck] = useState(0);
+  const [habitCheck, setHabitCheck] = useState<number | null>(null);
   const [checkImage, setCheckImage] = useState(MindCkeckImage);
 
-  const checkData = format(new Date(), 'yyyy-MM-dd');
+  const formatDate = format(new Date(), 'yyyy-MM-dd');
 
   const handleEdit = () => {
     navigation.navigate('Habit', {
@@ -39,7 +39,14 @@ export default function EditHabit({ habit, checkColor }: EditHabitProps) {
   };
 
   const handleCheck = () => {
-    if (habitCheck === 0) {
+    if (habitCheck === null) {
+      CheckService.checkHabit({
+        lastCheck: formatDate,
+        habitIsChecked: 1,
+        habitChecks: (habit?.habitChecks || 0) + 1,
+        habitArea: habit?.habitArea,
+      });
+
       setHabitCheck(1);
     }
   };
@@ -68,7 +75,7 @@ export default function EditHabit({ habit, checkColor }: EditHabitProps) {
         <EditHabitTitle> {habit?.habitName} </EditHabitTitle>
         <EditHabitFrequency>{textNotification}</EditHabitFrequency>
       </EditHabitContainer>
-      {habitCheck === 0 ? (
+      {habitCheck === 0 || habitCheck === null ? (
         <EditHabitCheck borderColor={checkColor} onPress={handleCheck} />
       ) : (
         <EditHabitCheck borderColor={checkColor} onPress={handleCheck}>

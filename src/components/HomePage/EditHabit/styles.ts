@@ -28,7 +28,7 @@ export const EditHabitFrequency = styled.Text`
 
 export const EditHabitCheck = styled.TouchableOpacity<BorderColorProps>`
   width: ${cw(20)}px;
-  height: ${ch(20)}px;
+  height: ${ch(25)}px;
   border-width: 1px;
   border-radius: ${cw(99)}px;
   border-color: ${props => (props.borderColor ? props.borderColor : 'none')};
