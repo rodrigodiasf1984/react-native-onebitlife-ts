@@ -8,6 +8,7 @@ import {
   useRoute,
 } from '@react-navigation/native';
 import { format } from 'date-fns';
+import * as Notifications from 'expo-notifications';
 
 import ArrowBackImage from '~/assets/icons/arrowBack.png';
 import DefaultButton from '~/components/common/DefaultButton';
@@ -17,6 +18,7 @@ import SelectFrequency from '~/components/HabitPage/SelectFrequency';
 import SelectHabit from '~/components/HabitPage/SelectHabit';
 import UpdateExcludeButtons from '~/components/HabitPage/UpdateExcludeButtons';
 import habitsService from '~/services/habitsService.js';
+import NotificationService from '~/services/notificationService';
 
 import {
   ArrowBack,
@@ -62,6 +64,15 @@ function Habit() {
         'Você precisa dizer a frequência e o horário da notificação!',
       );
     } else {
+      if (notificationToggle) {
+        NotificationService.createNotification(
+          habitInput,
+          frequencyInput,
+          dayNotification,
+          timeNotification,
+        );
+      }
+
       habitsService
         .createHabit({
           habitArea: habit?.habitArea,
