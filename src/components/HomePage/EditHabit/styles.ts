@@ -8,12 +8,12 @@ import { BorderColorProps } from '../types';
 export const EditHabitButton = styled.TouchableOpacity`
   background-color: ${THEME.COLORS.SHAPE_2};
   border-radius: 5px;
-  width: ${cw(320)}px;
+  width: 84%;
   margin: ${ch(10)}px 0;
-  padding: ${ch(10)}px ${cw(20)}px;
+  padding: ${ch(10)}px ${cw(16)}px;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 `;
 export const EditHabitTitle = styled.Text`
   color: white;
@@ -31,7 +31,6 @@ export const EditHabitCheck = styled.TouchableOpacity<BorderColorProps>`
   height: ${ch(25)}px;
   border-width: 1px;
   border-radius: ${cw(99)}px;
-  margin-left: ${cw(24)}px;
   border-color: ${props => (props.borderColor ? props.borderColor : 'none')};
 `;
 

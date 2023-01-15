@@ -8,7 +8,6 @@ import {
   useRoute,
 } from '@react-navigation/native';
 import { format } from 'date-fns';
-import * as Notifications from 'expo-notifications';
 
 import ArrowBackImage from '~/assets/icons/arrowBack.png';
 import DefaultButton from '~/components/common/DefaultButton';

@@ -87,14 +87,18 @@ function Home(route: { params: any }) {
           </DailyChecks>
         </View>
         <LifeStatus />
-        <Status />
+        <Status
+          mindHabit={mindHabit?.progressBar ?? 0}
+          bodyHabit={bodyHabit?.progressBar ?? 0}
+          funHabit={funHabit?.progressBar ?? 0}
+          moneyHabit={moneyHabit?.progressBar ?? 0}
+        />
 
         {mindHabit ? (
           <EditHabit habit={mindHabit} checkColor={THEME.COLORS.MIND} />
         ) : (
           <CreateHabit habitArea="Mente" borderColor={THEME.COLORS.MIND} />
         )}
-
         {moneyHabit ? (
           <EditHabit habit={moneyHabit} checkColor={THEME.COLORS.FINANCIAL} />
         ) : (
@@ -103,19 +107,16 @@ function Home(route: { params: any }) {
             borderColor={THEME.COLORS.FINANCIAL}
           />
         )}
-
         {bodyHabit ? (
           <EditHabit habit={bodyHabit} checkColor={THEME.COLORS.BODY} />
         ) : (
           <CreateHabit habitArea="Corpo" borderColor={THEME.COLORS.BODY} />
         )}
-
         {funHabit ? (
           <EditHabit habit={funHabit} checkColor={THEME.COLORS.FUN} />
         ) : (
           <CreateHabit habitArea="Humor" borderColor={THEME.COLORS.FUN} />
         )}
-
         <CustomTextGoBack onPress={() => navigation.navigate('AppExplanation')}>
           Ver explicação novamente
         </CustomTextGoBack>

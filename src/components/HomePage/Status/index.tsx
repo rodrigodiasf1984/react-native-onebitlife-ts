@@ -13,24 +13,39 @@ import {
   StatusContainer,
 } from './styles';
 
-export default function Status() {
+type StatusProps = {
+  mindHabit: number;
+  moneyHabit: number;
+  bodyHabit: number;
+  funHabit: number;
+};
+
+export default function Status({
+  mindHabit,
+  moneyHabit,
+  bodyHabit,
+  funHabit,
+}: StatusProps) {
   return (
     <StatusContainer>
       <ProgressBarContainer>
         <CustomImage source={EducationImage} />
-        <CustomProgressBar progress={1} color={THEME.COLORS.MIND} />
+        <CustomProgressBar progress={mindHabit} color={THEME.COLORS.MIND} />
       </ProgressBarContainer>
       <ProgressBarContainer>
         <CustomImage source={FinancesImage} />
-        <CustomProgressBar progress={0} color={THEME.COLORS.FINANCIAL} />
+        <CustomProgressBar
+          progress={moneyHabit}
+          color={THEME.COLORS.FINANCIAL}
+        />
       </ProgressBarContainer>
       <ProgressBarContainer>
         <CustomImage source={BodyImage} />
-        <CustomProgressBar progress={0} color={THEME.COLORS.BODY} />
+        <CustomProgressBar progress={bodyHabit} color={THEME.COLORS.BODY} />
       </ProgressBarContainer>
       <ProgressBarContainer>
         <CustomImage source={FunImage} />
-        <CustomProgressBar progress={0} color={THEME.COLORS.FUN} />
+        <CustomProgressBar progress={funHabit} color={THEME.COLORS.FUN} />
       </ProgressBarContainer>
     </StatusContainer>
   );
