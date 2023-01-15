@@ -87,11 +87,16 @@ function Home(route: { params: any }) {
       >
         <View>
           <DailyChecks>
-            ❤️{robotDaysLife} {robotDaysLife === '01' ? 'dia' : 'dias'} ✔️ 80
+            ❤️{robotDaysLife} {robotDaysLife === '1' ? 'dia' : 'dias'} ✔️ 80
             checks
           </DailyChecks>
         </View>
-        <LifeStatus />
+        <LifeStatus
+          mindHabit={mindHabit?.progressBar ?? 0}
+          bodyHabit={bodyHabit?.progressBar ?? 0}
+          funHabit={funHabit?.progressBar ?? 0}
+          moneyHabit={moneyHabit?.progressBar ?? 0}
+        />
         <Status
           mindHabit={mindHabit?.progressBar ?? 0}
           bodyHabit={bodyHabit?.progressBar ?? 0}
