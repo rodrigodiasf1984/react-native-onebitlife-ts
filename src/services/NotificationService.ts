@@ -1,10 +1,10 @@
 import * as Notifications from 'expo-notifications';
 
 async function createNotification(
-  habitInput: unknown,
-  frequencyInput: string,
-  dayNotification: string,
-  timeNotification: string | unknown[],
+  habitInput: string | undefined,
+  frequencyInput: string | undefined,
+  dayNotification: string | undefined,
+  timeNotification: string,
 ) {
   const habitHour = Number(timeNotification.slice(0, 2));
   const habitMinutes = Number(timeNotification.slice(3, 5));

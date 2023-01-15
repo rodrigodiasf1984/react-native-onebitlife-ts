@@ -112,6 +112,17 @@ function Habit() {
         })
         .then(() => {
           Alert.alert('Sucesso na atualização do hábito');
+          if (!notificationToggle) {
+            NotificationService.deleteNotification(habit?.habitName);
+          } else {
+            NotificationService.deleteNotification(habit?.habitName);
+            NotificationService.createNotification(
+              habitInput,
+              frequencyInput,
+              dayNotification,
+              timeNotification,
+            );
+          }
           navigation.navigate('Home', {
             updatedHabit: `Updated in ${habit?.habitArea}`,
           });
