@@ -11,7 +11,7 @@ export default function Routes() {
 
   ChangeNavigationService.checkShowHome(1)
     .then(resp => {
-      setShowHome(resp.showHome);
+      if (resp?.showHome) setShowHome(resp.showHome);
     })
     .catch(err => console.log(err));
 

@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable import/no-duplicates */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
@@ -18,14 +19,15 @@ import { THEME } from '~/utils/Theme';
 import { CustomTextGoBack, DailyChecks, HomeContainer } from './styles';
 
 function Home(route: { params: any }) {
-  const [mindHabit, setMindHabit] = useState<HabitProps>();
-  const [moneyHabit, setMoneyHabit] = useState<HabitProps>();
-  const [bodyHabit, setBodyHabit] = useState<HabitProps>();
-  const [funHabit, setFunHabit] = useState<HabitProps>();
+  const [mindHabit, setMindHabit] = useState<HabitProps | null>();
+  const [moneyHabit, setMoneyHabit] = useState<HabitProps | null>();
+  const [bodyHabit, setBodyHabit] = useState<HabitProps | null>();
+  const [funHabit, setFunHabit] = useState<HabitProps | null>();
   const [robotDaysLife, setRobotDaysLife] = useState('');
 
   const navigation = useNavigation<NavigationProp<any, any>>();
-  const { params } = route;
+
+  const excludeArea = route?.params?.excludeArea;
 
   useEffect(() => {
     HabitsService.findByArea('Mente').then(mind => {
@@ -41,6 +43,21 @@ function Home(route: { params: any }) {
       setFunHabit(fun[0]);
     });
 
+    if (excludeArea) {
+      if (excludeArea === 'Mente') {
+        setMindHabit(null);
+      }
+      if (excludeArea === 'Financeiro') {
+        setMoneyHabit(null);
+      }
+      if (excludeArea === 'Corpo') {
+        setBodyHabit(null);
+      }
+      if (excludeArea === 'Humor') {
+        setFunHabit(null);
+      }
+    }
+
     ChangeNavigationService.checkShowHome(1)
       .then(showHome => {
         if (!showHome.appStartData) {
@@ -54,7 +71,7 @@ function Home(route: { params: any }) {
         setRobotDaysLife(days.toString());
       })
       .catch(err => console.log(err));
-  }, [params]);
+  }, [excludeArea]);
 
   return (
     <HomeContainer>

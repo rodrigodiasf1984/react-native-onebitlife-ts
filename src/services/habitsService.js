@@ -30,7 +30,7 @@ const createHabit = obj => {
         ],
         (_, { rowsAffected, insertId }) => {
           if (rowsAffected > 0) resolve(insertId);
-          else reject('Error inserting obj: ' + JSON.stringify(obj));
+          else reject(`Error inserting obj: ${JSON.stringify(obj)}`);
         },
         (_, error) => reject(error),
       );

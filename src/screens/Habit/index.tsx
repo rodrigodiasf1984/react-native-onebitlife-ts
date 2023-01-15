@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Alert, ScrollView, View } from 'react-native';
 
 import {
@@ -44,7 +44,6 @@ function Habit() {
 
   const route = useRoute();
   const { create, habit } = route.params as any;
-  console.log('✅ ~  create', create);
   const formatDate = format(new Date(), 'yyyy-MM-dd');
 
   const handleCreateHabit = () => {
@@ -139,6 +138,24 @@ function Habit() {
         />
       </View>
     );
+
+  useEffect(() => {
+    const handleToogle = () => {
+      if (habit?.habitHasNotification === 1) {
+        setNotificationToggle(true);
+        setDayNotification(habit?.habitNotificationFrequency);
+        setTimeNotification(habit?.habitNotificationTime);
+      }
+    };
+    return () => {
+      handleToogle();
+    };
+  }, [
+    habit?.habitHasNotification,
+    habit?.habitNotificationFrequency,
+    habit?.habitNotificationTime,
+  ]);
+
   return (
     <HabitPageContainer>
       <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>

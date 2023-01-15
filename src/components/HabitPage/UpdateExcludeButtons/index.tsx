@@ -5,6 +5,7 @@ import { Alert } from 'react-native';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 
 import TrashImage from '~/assets/icons/trash.png';
+import HabitsService from '~/services/habitsService.js';
 import { THEME } from '~/utils/Theme';
 
 import {
@@ -17,11 +18,17 @@ import {
 function UpdateExcludeButtons({ habitInput, handleUpdate, habitArea }) {
   const navigation = useNavigation<NavigationProp<any, any>>();
 
-  const handleDeleteHabit = () => {
-    navigation.navigate('Home', {
-      exludedArea: `${habitArea}`,
-    });
-  };
+  function handleDeleteHabit() {
+    HabitsService.deleteByName(habitArea)
+      .then(() => {
+        Alert.alert('Exclusão feita com sucesso');
+        navigation.navigate('Home', {
+          excludeArea: `${habitArea}`,
+        });
+      })
+
+      .catch(err => console.log(err));
+  }
   return (
     <ExcludeButtonsContainer>
       <UpdateButton
