@@ -13,6 +13,7 @@ import EditHabit from '~/components/HomePage/EditHabit';
 import Status from '~/components/HomePage/Status';
 import { HabitProps } from '~/components/HomePage/types';
 import ChangeNavigationService from '~/services/changeNavigationService.js';
+import CheckService from '~/services/checkService.js';
 import HabitsService from '~/services/habitsService.js';
 import { THEME } from '~/utils/Theme';
 
@@ -72,6 +73,10 @@ function Home(route: { params: any }) {
       })
       .catch(err => console.log(err));
   }, [excludeArea]);
+
+  useEffect(() => {
+    CheckService.removeCheck(mindHabit, moneyHabit, bodyHabit, funHabit);
+  }, [mindHabit, moneyHabit, bodyHabit, funHabit]);
 
   return (
     <HomeContainer>

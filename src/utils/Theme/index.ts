@@ -7,8 +7,8 @@ export const THEME = {
     SECONDARY_TEXT: '#BBBBBB',
 
     MIND: '#90B7F3',
-    BODY: '#85BB65',
-    FINANCIAL: '#FF0044',
+    BODY: '#FF0044',
+    FINANCIAL: '#85BB65',
     FUN: '#FE7F23',
 
     INACTIVE: '#FF0044',
