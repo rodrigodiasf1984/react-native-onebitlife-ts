@@ -15,7 +15,17 @@ import {
   TrashIcon,
 } from './styles';
 
-function UpdateExcludeButtons({ habitInput, handleUpdate, habitArea }) {
+type UpdateExcludeButtonsProps = {
+  habitInput: string | undefined;
+  handleUpdate: () => void;
+  habitArea: any;
+};
+
+function UpdateExcludeButtons({
+  habitInput,
+  handleUpdate,
+  habitArea,
+}: UpdateExcludeButtonsProps) {
   const navigation = useNavigation<NavigationProp<any, any>>();
 
   function handleDeleteHabit() {
